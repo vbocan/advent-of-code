@@ -8,17 +8,13 @@ fn main() {
     let mut nice_strings_count = 0;
     for line in reader.lines() {
         let l = line.unwrap();
-        let chk1 = check_vowels(&l);
-        let chk2 = check_doubled_letters(&l);
-        let chk3 = check_forbidden_strings(&l);
-        if chk1 && chk2 && chk3 {
+        if check_vowels(&l) && check_doubled_letters(&l) && check_forbidden_strings(&l) {
             nice_strings_count += 1;
         }
     }
     println!("Number of nice strings: {}", nice_strings_count);
 }
 
-// #region Rule Set #1
 fn check_vowels(input: &str) -> bool {
     let vowels = vec!['a', 'e', 'i', 'o', 'u'];
     // Check for at least three vowels
@@ -49,4 +45,3 @@ fn check_forbidden_strings(input: &str) -> bool {
         .sum();
     count == 0
 }
-// #endregion
